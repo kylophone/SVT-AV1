@@ -3,11 +3,11 @@ language: c
 addons:
   apt:
     packages:
-     - cmake
-     - yasm
+      - cmake
+      - yasm
   homebrew:
     packages:
-     - yasm
+      - yasm
 
 matrix:
   include:
