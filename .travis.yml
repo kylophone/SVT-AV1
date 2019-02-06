@@ -1,18 +1,18 @@
 language: c
 
-os:
-  - linux
-  - osx
-
 addons:
   apt:
     packages:
      - cmake
      - yasm
 
-jobs:
+matrix:
   include:
-   - name: SVT-AV1
-     script:
-     - cd Build/linux
-     - ./build.sh release
+   - os: linux
+     dist: xenial
+   - os: macos
+     osx_image: xcode9.4
+
+script:
+  - cd Build/linux
+  - ./build.sh release
