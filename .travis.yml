@@ -5,6 +5,9 @@ addons:
     packages:
      - cmake
      - yasm
+  homebrew:
+    packages:
+     - yasm
 
 matrix:
   include:
