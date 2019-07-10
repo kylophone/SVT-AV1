@@ -51,7 +51,8 @@ install:
 base_script: &base_script |
   cd $TRAVIS_BUILD_DIR/Build/linux/$build_type
   if [ "$CC" = "gcc" ] || { [[ "$TRAVIS_OS_NAME" = "osx" ]] && [[ "$CC" = "clang" ]]; }; then CFLAGS+=" -Werror"; fi
-  cmake $TRAVIS_BUILD_DIR -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=$build_type ${CMAKE_EFLAGS[@]}
+  echo $CC && echo $CFLAGS
+  cmake $TRAVIS_BUILD_DIR -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=$build_type -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON ${CMAKE_EFLAGS[@]}
   cmake -j $(if [ $TRAVIS_OS_NAME = osx ]; then sysctl -n hw.ncpu; else nproc; fi) --build . &&
   sudo cmake --build . --target install && cd $TRAVIS_BUILD_DIR
 coveralls_script: &coveralls_script |
