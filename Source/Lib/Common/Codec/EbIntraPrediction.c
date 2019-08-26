@@ -239,7 +239,7 @@ void av1_upsample_intra_edge_high_c_old(uint8_t *p, int32_t sz, int32_t bd) {
     }
 }
 
-const uint16_t eb_dr_intra_derivative[90] = {
+static const uint16_t eb_dr_intra_derivative[90] = {
     // More evenly spread out angles and limited to 10-bit
     // Values that are 0 will never be used
     //                    Approx angle
@@ -1242,7 +1242,7 @@ static uint8_t has_tr_32x8[8] = {
 static uint8_t has_tr_16x64[2] = { 255, 127 };
 static uint8_t has_tr_64x16[2] = { 3, 1 };
 
-const uint8_t *const has_tr_tables[BlockSizeS_ALL] = {
+static const uint8_t *const has_tr_tables[BlockSizeS_ALL] = {
     // 4X4
     has_tr_4x4,
     // 4X8,       8X4,            8X8
@@ -1280,7 +1280,7 @@ static uint8_t has_tr_vert_64x64[1] = { 3 };
 //
 // There are tables for each of the square sizes. Vertical rectangles (like
 // BLOCK_16X32) use their respective "non-vert" table
-const uint8_t *const has_tr_vert_tables[BlockSizeS] = {
+static const uint8_t *const has_tr_vert_tables[BlockSizeS] = {
     // 4X4
     NULL,
     // 4X8,      8X4,         8X8
@@ -1426,7 +1426,7 @@ static uint8_t has_bl_32x8[8] = {
 static uint8_t has_bl_16x64[2] = { 0, 0 };
 static uint8_t has_bl_64x16[2] = { 42, 42 };
 
-const uint8_t *const has_bl_tables[BlockSizeS_ALL] = {
+static const uint8_t *const has_bl_tables[BlockSizeS_ALL] = {
     // 4X4
     has_bl_4x4,
     // 4X8,         8X4,         8X8
@@ -1464,7 +1464,7 @@ static uint8_t has_bl_vert_64x64[1] = { 2 };
 //
 // There are tables for each of the square sizes. Vertical rectangles (like
 // BLOCK_16X32) use their respective "non-vert" table
-const uint8_t *const has_bl_vert_tables[BlockSizeS] = {
+static const uint8_t *const has_bl_vert_tables[BlockSizeS] = {
     // 4X4
     NULL,
     // 4X8,     8X4,         8X8
@@ -2536,8 +2536,8 @@ intra_pred_highbd_sized(paeth, 32, 64)
 intra_pred_highbd_sized(paeth, 64, 16)
 intra_pred_highbd_sized(paeth, 64, 32)
 
-IntraPredFnC  dc_pred_c[2][2];
-IntraHighBdPredFnC  highbd_dc_pred_c[2][2];
+static IntraPredFnC  dc_pred_c[2][2];
+static IntraHighBdPredFnC  highbd_dc_pred_c[2][2];
 void init_intra_dc_predictors_c_internal(void)
 {
     dc_pred_c[0][0] = dc_128_predictor;

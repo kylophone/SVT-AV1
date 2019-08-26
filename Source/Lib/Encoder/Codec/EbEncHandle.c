@@ -111,7 +111,7 @@ typedef struct logicalProcessorGroup {
     uint32_t group[1024];
 }processorGroup;
 #define MAX_PROCESSOR_GROUP 16
-processorGroup                   lp_group[MAX_PROCESSOR_GROUP];
+static processorGroup lp_group[MAX_PROCESSOR_GROUP];
 #endif
 static int32_t CanUseIntelCore4thGenFeatures()
 {

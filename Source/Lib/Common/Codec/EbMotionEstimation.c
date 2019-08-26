@@ -27,7 +27,7 @@
 #include "EbPictureOperators.h"
 #define OIS_TH_COUNT 4
 
-int32_t OisPointTh[3][MAX_TEMPORAL_LAYERS][OIS_TH_COUNT] = {
+static int32_t OisPointTh[3][MAX_TEMPORAL_LAYERS][OIS_TH_COUNT] = {
     {// Light OIS
      {-20, 50, 150, 200},
      {-20, 50, 150, 200},

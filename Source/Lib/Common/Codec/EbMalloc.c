@@ -73,7 +73,7 @@ typedef struct MemoryEntry{
 //+1 to get a better hash result
 #define MEM_ENTRY_SIZE (4 * 1024 * 1024 + 1)
 
-MemoryEntry g_mem_entry[MEM_ENTRY_SIZE];
+static MemoryEntry g_mem_entry[MEM_ENTRY_SIZE];
 
 #define TO_INDEX(v) ((v) % MEM_ENTRY_SIZE)
 static EbBool g_add_mem_entry_warning = EB_TRUE;

@@ -526,7 +526,7 @@ const MiniGopStats* get_mini_gop_stats(const uint32_t mini_gop_index)
     return &MiniGopStatsArray[mini_gop_index];
 }
 
-uint32_t ns_quarter_off_mult[9/*Up to 9 part*/][2/*x+y*/][4/*Up to 4 ns blocks per part*/] =
+static uint32_t ns_quarter_off_mult[9/*Up to 9 part*/][2/*x+y*/][4/*Up to 4 ns blocks per part*/] =
 {
     //9 means not used.
 
@@ -543,7 +543,7 @@ uint32_t ns_quarter_off_mult[9/*Up to 9 part*/][2/*x+y*/][4/*Up to 4 ns blocks p
     /*P=8*/  {  {0,1,2,3}  ,  {0,0,0,0}  }
 };
 
-uint32_t ns_quarter_size_mult[9/*Up to 9 part*/][2/*h+v*/][4/*Up to 4 ns blocks per part*/] =
+static uint32_t ns_quarter_size_mult[9/*Up to 9 part*/][2/*h+v*/][4/*Up to 4 ns blocks per part*/] =
 {
     //9 means not used.
 
@@ -560,7 +560,7 @@ uint32_t ns_quarter_size_mult[9/*Up to 9 part*/][2/*h+v*/][4/*Up to 4 ns blocks 
     /*P=8*/  {  {1,1,1,1}  ,  {4,4,4,4}  }
 };
 
-BlockSize hvsize_to_bsize[/*H*/6][/*V*/6] =
+static BlockSize hvsize_to_bsize[/*H*/6][/*V*/6] =
 {
     {  BLOCK_4X4,       BLOCK_4X8,     BLOCK_4X16,      BLOCK_INVALID,   BLOCK_INVALID,   BLOCK_INVALID      },
     {  BLOCK_8X4,       BLOCK_8X8,     BLOCK_8X16,      BLOCK_8X32,      BLOCK_INVALID,   BLOCK_INVALID      },
@@ -570,17 +570,17 @@ BlockSize hvsize_to_bsize[/*H*/6][/*V*/6] =
     {  BLOCK_INVALID,   BLOCK_INVALID, BLOCK_INVALID,   BLOCK_INVALID,   BLOCK_128X64,    BLOCK_128X128   }
 };
 
-uint32_t  max_sb = 64;
-uint32_t  max_depth = 5;
-uint32_t  max_part = 9;
-uint32_t  max_num_active_blocks;
+static uint32_t max_sb = 64;
+static uint32_t max_depth = 5;
+static uint32_t max_part = 9;
+static uint32_t max_num_active_blocks;
 
 //data could be  organized in 2 forms: depth scan (dps) or MD scan (mds):
 //dps: all depth0 - all depth1 - all depth2 - all depth3.
 //     within a depth: square blk0 in raster scan (followed by all its ns blcoks),
 //     square blk1 in raster scan (followed by all its ns blcoks), etc
 //mds: top-down and Z scan.
-BlockGeom blk_geom_dps[MAX_NUM_BLOCKS_ALLOC];  //to access geom info of a particular block : use this table if you have the block index in depth scan
+static BlockGeom blk_geom_dps[MAX_NUM_BLOCKS_ALLOC];  //to access geom info of a particular block : use this table if you have the block index in depth scan
 BlockGeom blk_geom_mds[MAX_NUM_BLOCKS_ALLOC];  //to access geom info of a particular block : use this table if you have the block index in md    scan
 
 uint32_t search_matching_from_dps(

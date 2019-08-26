@@ -12,7 +12,7 @@ EB_EXTERN EB_ALIGN(16) const uint8_t filterType[] = {
     1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4
 };
 
-EB_EXTERN EB_ALIGN(16) const uint8_t WeakChromafilter[2][32] = {
+EB_EXTERN EB_ALIGN(16) static const uint8_t WeakChromafilter[2][32] = {
         { 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4 },
         { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
 };

@@ -961,7 +961,7 @@ void eb_av1_highbd_jnt_convolve_2d_c(const uint16_t *src, int32_t src_stride,
     }
 }
 
-aom_highbd_convolve_fn_t convolveHbd[/*subX*/2][/*subY*/2][/*bi*/2];
+static aom_highbd_convolve_fn_t convolveHbd[/*subX*/2][/*subY*/2][/*bi*/2];
 void asmSetConvolveHbdAsmTable(void)
 {
     convolveHbd[0][0][0] = eb_av1_highbd_convolve_2d_copy_sr;
@@ -993,8 +993,8 @@ void asmSetConvolveAsmTable(void)
     convolve[1][1][1] = eb_av1_jnt_convolve_2d;
 }
 
-InterpFilterParams av1RegularFilter = { (const int16_t *)sub_pel_filters_8, SUBPEL_TAPS, SUBPEL_SHIFTS, EIGHTTAP_REGULAR };
-InterpFilterParams av1RegularFilterW4 = { (const int16_t *)sub_pel_filters_4, SUBPEL_TAPS, SUBPEL_SHIFTS, EIGHTTAP_REGULAR };
+static InterpFilterParams av1RegularFilter = { (const int16_t *)sub_pel_filters_8, SUBPEL_TAPS, SUBPEL_SHIFTS, EIGHTTAP_REGULAR };
+static InterpFilterParams av1RegularFilterW4 = { (const int16_t *)sub_pel_filters_4, SUBPEL_TAPS, SUBPEL_SHIFTS, EIGHTTAP_REGULAR };
 
 DECLARE_ALIGNED(256, static const InterpKernel,
 sub_pel_filters_8sharp[SUBPEL_SHIFTS]) = {

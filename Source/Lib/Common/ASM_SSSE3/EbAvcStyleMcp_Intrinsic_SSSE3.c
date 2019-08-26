@@ -11,7 +11,7 @@
 #include "emmintrin.h"
 #include "tmmintrin.h"
 
-EB_EXTERN EB_ALIGN(16) const int8_t AvcStyleLumaIFCoeff8_SSSE3[] = {
+EB_EXTERN EB_ALIGN(16) static const int8_t AvcStyleLumaIFCoeff8_SSSE3[] = {
     -1, 25, -1, 25, -1, 25, -1, 25, -1, 25, -1, 25, -1, 25, -1, 25,
      9, -1,  9, -1,  9, -1,  9, -1,  9, -1,  9, -1,  9, -1,  9, -1,
     -2, 18, -2, 18, -2, 18, -2, 18, -2, 18, -2, 18, -2, 18, -2, 18,

@@ -267,7 +267,8 @@ static void SetBitstreamLevelTier(SequenceControlSet *scs_ptr) {
     }
 }
 
-const uint8_t KEobOffsetBits[12] = { 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+static const uint8_t KEobOffsetBits[12] =
+    { 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 static void WriteGolomb(AomWriter *w, int32_t level) {
     int32_t x = level + 1;
@@ -301,8 +302,9 @@ static const uint8_t EobToPosLarge[17] = {
     10, 10, 10, 10, 10, 10, 10, 10,  // 257-512
     11                               // 513-
 };
-const int16_t KEobGroupStart[12] = { 0,  1,  2,  3,   5,   9,
-                                        17, 33, 65, 129, 257, 513 };
+
+static const int16_t KEobGroupStart[12] =
+    {0, 1, 2, 3, 5, 9, 17, 33, 65, 129, 257, 513};
 
 static INLINE int16_t GetEobPosToken(const int16_t eob, int16_t *const extra) {
     int16_t t;

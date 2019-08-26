@@ -2254,7 +2254,7 @@ void product_full_loop(
     }
 }
 // T1
-uint8_t allowed_tx_set_a[TX_SIZES_ALL][TX_TYPES] = {
+static uint8_t allowed_tx_set_a[TX_SIZES_ALL][TX_TYPES] = {
 {1,    1,    1,    1,    0,    0,    0,    0,    0,    1,    1,    1,    0,    0,    0,    0},
 {1,    1,    1,    1,    0,    0,    0,    0,    0,    1,    1,    1,    0,    1,    0,    1},
 {1,    1,    1,    1,    0,    0,    0,    0,    0,    1,    1,    1,    0,    0,    0,    0},
@@ -2275,7 +2275,7 @@ uint8_t allowed_tx_set_a[TX_SIZES_ALL][TX_TYPES] = {
 {1,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 {1,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0} };
 
-uint8_t allowed_tx_set_b[TX_SIZES_ALL][TX_TYPES] = {
+static uint8_t allowed_tx_set_b[TX_SIZES_ALL][TX_TYPES] = {
 {1,    1,    1,    1,    0,    0,    0,    0,    0,    0,    0,    1,    0,    0,    0,    0},
 {1,    0,    0,    0,    0,    0,    0,    0,    0,    1,    1,    1,    0,    0,    0,    0},
 {1,    1,    1,    0,    0,    0,    0,    0,    0,    1,    0,    0,    0,    0,    0,    0},

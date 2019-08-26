@@ -31,7 +31,7 @@ static void set_colour_space(const char *value, EbSvtAv1DecConfiguration *cfg) {
  /**********************************
   * Config Entry Array
   **********************************/
-ConfigEntry config_entry[] = {
+static ConfigEntry config_entry[] = {
     // Decoder settings
     { SKIP_FRAME_TOKEN, "SkipFrame", 1, set_skip_frame },
     { LIMIT_FRAME_TOKEN, "LimitFrame", 1, set_limit_frame },

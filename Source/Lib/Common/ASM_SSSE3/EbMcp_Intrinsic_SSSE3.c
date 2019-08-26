@@ -18,7 +18,7 @@
 __attribute__((visibility("hidden")))
 #endif
 #endif
-const int16_t lumaFilterCoeff[4][8] =
+static const int16_t lumaFilterCoeff[4][8] =
 {
   { 0, 0,  0, 64,  0,  0, 0,  0},
   {-1, 4,-10, 58, 17, -5, 1,  0},
@@ -31,7 +31,7 @@ const int16_t lumaFilterCoeff[4][8] =
 __attribute__((visibility("hidden")))
 #endif
 #endif
-const int16_t lumaFilterCoeff7[4][8] =
+static const int16_t lumaFilterCoeff7[4][8] =
 {
   { 0, 0,  0, 64,  0,  0, 0,  0},
   {-1, 4,-10, 58, 17, -5, 1,  0},
@@ -44,7 +44,7 @@ const int16_t lumaFilterCoeff7[4][8] =
 __attribute__((visibility("hidden")))
 #endif
 #endif
-const int16_t chromaFilterCoeff[8][4] =
+static const int16_t chromaFilterCoeff[8][4] =
 {
   { 0, 64,  0,  0},
   {-2, 58, 10, -2},

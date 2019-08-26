@@ -94,7 +94,7 @@ static const int8_t *eb_av1_nz_map_ctx_offset[19] = {
 #define NZ_MAP_CTX_5 (NZ_MAP_CTX_0 + 5)
 #define NZ_MAP_CTX_10 (NZ_MAP_CTX_0 + 10)
 
-const int nz_map_ctx_offset_1d[32] = {
+static const int nz_map_ctx_offset_1d[32] = {
   NZ_MAP_CTX_0,  NZ_MAP_CTX_5,  NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10,
   NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10,
   NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10, NZ_MAP_CTX_10,
@@ -110,14 +110,14 @@ static int div_mult[32] = { 0,    16384, 8192, 5461, 4096, 3276, 2730, 2340,
                             682,  655,   630,  606,  585,  564,  546,  528 };
 
 
-int wiener_taps_min[3] = { -5, -23, -17 };
-int wiener_taps_max[3] = { 10, 8, 46 };
-int wiener_taps_k[3] = { 1, 2, 3 };
-int sgrproj_xqd_min[2] = { -96, -32 };
-int sgrproj_xqd_max[2] = { 31, 95 };
+static int wiener_taps_min[3] = { -5, -23, -17 };
+static int wiener_taps_max[3] = { 10, 8, 46 };
+static int wiener_taps_k[3] = { 1, 2, 3 };
+static int sgrproj_xqd_min[2] = { -96, -32 };
+static int sgrproj_xqd_max[2] = { 31, 95 };
 
 /* Harmonize with encoder*/
-int sgr_params_dec[(1 << SGRPROJ_PARAMS_BITS)][4] = {
+static int sgr_params_dec[(1 << SGRPROJ_PARAMS_BITS)][4] = {
     { 2, 12, 1, 4 }, { 2, 15, 1, 6 }, { 2, 18, 1, 8 }, { 2, 21, 1, 9 },
     { 2, 24, 1, 10 }, { 2, 29, 1, 11 }, { 2, 36, 1, 12 }, { 2, 45, 1, 13 },
     { 2, 56, 1, 14 }, { 2, 68, 1, 15 }, { 0, 0, 1, 5 }, { 0, 0, 1, 8 },

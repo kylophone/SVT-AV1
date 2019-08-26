@@ -104,7 +104,7 @@
 __attribute__((visibility("hidden")))
 #endif
 #endif
-EB_ALIGN(16) const int16_t dst_transform_asm_const_sse2[] = {
+EB_ALIGN(16) static const int16_t dst_transform_asm_const_sse2[] = {
     1, 0, 1, 0, 1, 0, 1, 0,
     29, 55, 29, 55, 29, 55, 29, 55,
     74, 84, 74, 84, 74, 84, 74, 84,
@@ -125,7 +125,7 @@ EB_ALIGN(16) const int16_t dst_transform_asm_const_sse2[] = {
 __attribute__((visibility("hidden")))
 #endif
 #endif
-EB_ALIGN(16) const int16_t inv_transform_asm_const_sse2[] = {
+EB_ALIGN(16) static const int16_t inv_transform_asm_const_sse2[] = {
     2, 0, 2, 0, 2, 0, 2, 0,
     4, 0, 4, 0, 4, 0, 4, 0,
     8, 0, 8, 0, 8, 0, 8, 0,
@@ -322,7 +322,7 @@ EB_ALIGN(16) const int16_t inv_transform_asm_const_sse2[] = {
 __attribute__((visibility("hidden")))
 #endif
 #endif
-EB_ALIGN(16) const int16_t inv_dst_transform_asm_const_sse2[] = {
+EB_ALIGN(16) static const int16_t inv_dst_transform_asm_const_sse2[] = {
     64, 0, 64, 0, 64, 0, 64, 0,
     29, 84, 29, 84, 29, 84, 29, 84,
     74, 55, 74, 55, 74, 55, 74, 55,
@@ -335,7 +335,7 @@ EB_ALIGN(16) const int16_t inv_dst_transform_asm_const_sse2[] = {
 };
 
 // Coefficients for inverse 32-point transform
-EB_EXTERN const int16_t coeff_tbl2[48 * 8] =
+EB_EXTERN static const int16_t coeff_tbl2[48 * 8] =
 {
     64, 89, 64, 75, 64, 50, 64, 18, 64, -18, 64, -50, 64, -75, 64, -89,
     83, 75, 36, -18, -36, -89, -83, -50, -83, 50, -36, 89, 36, 18, 83, -75,
@@ -368,7 +368,7 @@ EB_EXTERN const int16_t coeff_tbl2[48 * 8] =
 __attribute__((visibility("hidden")))
 #endif
 #endif
-EB_EXTERN const int16_t coeff_tbl[48 * 8] =
+EB_EXTERN static const int16_t coeff_tbl[48 * 8] =
 {
     64, 64, 89, 75, 83, 36, 75, -18, 64, -64, 50, -89, 36, -83, 18, -50,
     64, 64, 50, 18, -36, -83, -89, -50, -64, 64, 18, 75, 83, -36, 75, -89,

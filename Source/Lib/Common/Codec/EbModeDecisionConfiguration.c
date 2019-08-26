@@ -11,7 +11,7 @@
 /********************************************
  * Constants
  ********************************************/
-int pa_to_ep_block_index[85] = {
+static int pa_to_ep_block_index[85] = {
     0    ,
     25   ,
     50   ,
@@ -69,7 +69,7 @@ static const uint8_t parentCuIndex[85] =
     36, 0, 0, 1, 2, 3, 5, 0, 1, 2, 3, 10, 0, 1, 2, 3, 15, 0, 1, 2, 3,
 };
 
-const uint8_t incrementalCount[85] = {
+static const uint8_t incrementalCount[85] = {
     //64x64
     0,
     //32x32

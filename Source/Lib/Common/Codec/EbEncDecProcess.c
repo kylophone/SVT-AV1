@@ -55,19 +55,19 @@ void eb_av1_loop_restoration_save_boundary_lines(const Yv12BufferConfig *frame, 
 void eb_av1_pick_filter_restoration(const Yv12BufferConfig *src, Yv12BufferConfig * trial_frame_rst /*Av1Comp *cpi*/, Macroblock *x, Av1Common *const cm);
 void eb_av1_loop_restoration_filter_frame(Yv12BufferConfig *frame, Av1Common *cm, int32_t optimized_lr);
 
-const int16_t encMinDeltaQpWeightTab[MAX_TEMPORAL_LAYERS] = { 100, 100, 100, 100, 100, 100 };
-const int16_t encMaxDeltaQpWeightTab[MAX_TEMPORAL_LAYERS] = { 100, 100, 100, 100, 100, 100 };
+static const int16_t encMinDeltaQpWeightTab[MAX_TEMPORAL_LAYERS] = { 100, 100, 100, 100, 100, 100 };
+static const int16_t encMaxDeltaQpWeightTab[MAX_TEMPORAL_LAYERS] = { 100, 100, 100, 100, 100, 100 };
 
-const int8_t  encMinDeltaQpISliceTab[4] = { -5, -5, -3, -2 };
+static const int8_t encMinDeltaQpISliceTab[4] = { -5, -5, -3, -2 };
 
-const int8_t  encMinDeltaQpTab[4][MAX_TEMPORAL_LAYERS] = {
+static const int8_t encMinDeltaQpTab[4][MAX_TEMPORAL_LAYERS] = {
     { -4, -2, -2, -1, -1, -1 },
     { -4, -2, -2, -1, -1, -1 },
     { -3, -1, -1, -1, -1, -1 },
     { -1, -0, -0, -0, -0, -0 },
 };
 
-const int8_t  encMaxDeltaQpTab[4][MAX_TEMPORAL_LAYERS] = {
+static const int8_t  encMaxDeltaQpTab[4][MAX_TEMPORAL_LAYERS] = {
     { 4, 5, 5, 5, 5, 5 },
     { 4, 5, 5, 5, 5, 5 },
     { 4, 5, 5, 5, 5, 5 },

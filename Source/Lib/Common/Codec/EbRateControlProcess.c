@@ -3204,7 +3204,7 @@ enum {
     RATE_FACTOR_LEVELS = 6
 } RATE_FACTOR_LEVEL;
 
-enum {
+enum FrameUpdateType {
     KF_UPDATE = 0,
     LF_UPDATE = 1,
     GF_UPDATE = 2,
@@ -3216,7 +3216,7 @@ enum {
     INTNL_OVERLAY_UPDATE = 8,  // Internal Overlay Frame
     INTNL_ARF_UPDATE = 9,      // Internal Altref Frame (candidate for ALTREF2)
     FRAME_UPDATE_TYPES = 10
-} FRAME_UPDATE_TYPE;
+};
 
 // that are not marked as coded with 0,0 motion in the first pass.
 #define FAST_MOVING_KF_GROUP_THRESH 5

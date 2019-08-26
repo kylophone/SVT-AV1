@@ -62,16 +62,17 @@ EbErrorType ProductGenerateMdCandidatesCu(
 *
 *******************************************/
 
-const EbPredictionFunc  ProductPredictionFunTable[3] = { NULL, inter_pu_prediction_av1, eb_av1_intra_prediction_cl};
+static const EbPredictionFunc ProductPredictionFunTable[3] =
+    { NULL, inter_pu_prediction_av1, eb_av1_intra_prediction_cl};
 
-const EbFastCostFunc   Av1ProductFastCostFuncTable[3] =
+static const EbFastCostFunc Av1ProductFastCostFuncTable[3] =
 {
     NULL,
     av1_inter_fast_cost, /*INTER */
     av1_intra_fast_cost /*INTRA */
 };
 
-const EbAv1FullCostFunc   Av1ProductFullCostFuncTable[3] =
+static const EbAv1FullCostFunc Av1ProductFullCostFuncTable[3] =
 {
     NULL,
     av1_inter_full_cost, /*INTER */
@@ -707,7 +708,7 @@ void set_nfl(
 }
 
 #define TOTAL_SQ_BLOCK_COUNT 341
-int sq_block_index[TOTAL_SQ_BLOCK_COUNT] = {
+static int sq_block_index[TOTAL_SQ_BLOCK_COUNT] = {
     0,
     25,
     50,

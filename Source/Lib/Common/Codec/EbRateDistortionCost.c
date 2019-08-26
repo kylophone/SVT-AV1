@@ -1165,7 +1165,7 @@ uint64_t EstimateRefFramesNumBits(
 //extern INLINE int16_t Av1ModeContextAnalyzer(const int16_t *const mode_context, const MvReferenceFrame *const rf);
 
 extern  int8_t av1_ref_frame_type(const MvReferenceFrame *const rf);
-uint16_t compound_mode_ctx_map_2[3][COMP_NEWMV_CTXS] = {
+static uint16_t compound_mode_ctx_map_2[3][COMP_NEWMV_CTXS] = {
    { 0, 1, 1, 1, 1 },
    { 1, 2, 3, 4, 4 },
    { 4, 4, 5, 6, 7 },

@@ -1434,7 +1434,7 @@ static EB_AV1_ENCODE_LOOP_FUNC_PTR   Av1EncodeLoopFunctionTable[2] =
     Av1EncodeLoop16bit
 };
 
-EB_AV1_GENERATE_RECON_FUNC_PTR   Av1EncodeGenerateReconFunctionPtr[2] =
+static EB_AV1_GENERATE_RECON_FUNC_PTR Av1EncodeGenerateReconFunctionPtr[2] =
 {
     Av1EncodeGenerateRecon,
     Av1EncodeGenerateRecon16bit

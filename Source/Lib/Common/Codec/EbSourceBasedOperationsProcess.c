@@ -45,12 +45,9 @@
 #define LOW_MEAN_THLD1                   40
 #define HIGH_MEAN_THLD1                  210
 #define NORM_FACTOR                      10 // Used ComplexityClassifier32x32
-const int8_t  MinDeltaQPdefault[3] = {
-    -4, -3, -2
-};
-const uint8_t MaxDeltaQPdefault[3] = {
-    4, 5, 6
-};
+
+static const int8_t  MinDeltaQPdefault[3] = { -4, -3, -2 };
+static const uint8_t MaxDeltaQPdefault[3] = { 4, 5, 6 };
 
 /************************************************
 * Initial Rate Control Context Constructor

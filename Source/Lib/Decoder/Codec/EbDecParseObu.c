@@ -43,11 +43,11 @@
 #define CONFIG_MAX_DECODE_PROFILE 2
 #define INT_MAX       2147483647    // maximum (signed) int value
 
-int Remap_Lr_Type[4] = {
-    RESTORE_NONE, RESTORE_SWITCHABLE, RESTORE_WIENER, RESTORE_SGRPROJ };
+static int Remap_Lr_Type[4] =
+    { RESTORE_NONE, RESTORE_SWITCHABLE, RESTORE_WIENER, RESTORE_SGRPROJ };
 
-int wiener_taps_mid[3] = { 3, -7, 15 };
-int sgrproj_xqd_mid[2] = { -32, 31 };
+static int wiener_taps_mid[3] = { 3, -7, 15 };
+static int sgrproj_xqd_mid[2] = { -32, 31 };
 
 /* Checks that the remaining bits start with a 1 and ends with 0s.
  * It consumes an additional byte, if already byte aligned before the check. */
