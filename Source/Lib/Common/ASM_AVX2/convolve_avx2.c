@@ -802,7 +802,7 @@ static INLINE void build_compound_diffwtd_mask_d16_inv_avx2(
         } while (i < h);
     }
 }
-void av1_build_compound_diffwtd_mask_d16_avx2(
+void svt_av1_build_compound_diffwtd_mask_d16_avx2(
     uint8_t *mask, DIFFWTD_MASK_TYPE mask_type, const CONV_BUF_TYPE *src0,
     int src0_stride, const CONV_BUF_TYPE *src1, int src1_stride, int h, int w,
     ConvolveParams *conv_params, int bd) {
@@ -841,7 +841,7 @@ static INLINE __m256i yy_set1_64_from_32i(int32_t a) {
 /**
  * See av1_wedge_sse_from_residuals_c
  */
-uint64_t av1_wedge_sse_from_residuals_avx2(const int16_t *r1, const int16_t *d,
+uint64_t svt_av1_wedge_sse_from_residuals_avx2(const int16_t *r1, const int16_t *d,
     const uint8_t *m, int N) {
     int n = -N;
 
@@ -964,7 +964,7 @@ static INLINE void aom_subtract_block_128xn_avx2(
         diff_ptr += diff_stride;
     }
 }
-void aom_subtract_block_avx2(int rows, int cols, int16_t *diff_ptr,
+void svt_av1_aom_subtract_block_avx2(int rows, int cols, int16_t *diff_ptr,
     ptrdiff_t diff_stride, const uint8_t *src_ptr,
     ptrdiff_t src_stride, const uint8_t *pred_ptr,
     ptrdiff_t pred_stride) {
@@ -1054,7 +1054,7 @@ static INLINE int64_t summary_all_avx2(const __m256i *sum_all) {
     xx_storel_64(&sum, sum_1x64);
     return sum;
 }
-int64_t aom_sse_avx2(const uint8_t *a, int a_stride, const uint8_t *b,
+int64_t svt_av1_aom_sse_avx2(const uint8_t *a, int a_stride, const uint8_t *b,
     int b_stride, int width, int height) {
     int32_t y = 0;
     int64_t sse = 0;
@@ -1645,7 +1645,7 @@ static INLINE void lowbd_blend_a64_d16_mask_subw0_subh1_w32_avx2(
 }
 #define IS_POWER_OF_TWO(x) (((x) & ((x)-1)) == 0)
 
-void aom_lowbd_blend_a64_d16_mask_avx2(
+void svt_av1_aom_lowbd_blend_a64_d16_mask_avx2(
     uint8_t *dst, uint32_t dst_stride, const CONV_BUF_TYPE *src0,
     uint32_t src0_stride, const CONV_BUF_TYPE *src1, uint32_t src1_stride,
     const uint8_t *mask, uint32_t mask_stride, int w, int h, int subw, int subh,
@@ -1833,7 +1833,7 @@ static uint64_t aom_sum_squares_i16_64n_sse2(const int16_t *src, uint32_t n) {
     return xx_cvtsi128_si64(v_acc0_q);
 }
 
-uint64_t aom_sum_squares_i16_sse2(const int16_t *src, uint32_t n) {
+uint64_t svt_av1_aom_sum_squares_i16_sse2(const int16_t *src, uint32_t n) {
     if (n % 64 == 0) {
         return aom_sum_squares_i16_64n_sse2(src, n);
     }
@@ -1853,7 +1853,7 @@ uint64_t aom_sum_squares_i16_sse2(const int16_t *src, uint32_t n) {
 /**
  * See av1_wedge_sign_from_residuals_c
  */
-int8_t av1_wedge_sign_from_residuals_avx2(const int16_t *ds, const uint8_t *m,
+int8_t svt_av1_wedge_sign_from_residuals_avx2(const int16_t *ds, const uint8_t *m,
     int N, int64_t limit) {
     int64_t acc;
     __m256i v_acc0_d = _mm256_setzero_si256();
@@ -1923,7 +1923,7 @@ int8_t av1_wedge_sign_from_residuals_avx2(const int16_t *ds, const uint8_t *m,
 /**
  * av1_wedge_compute_delta_squares_c
  */
-void av1_wedge_compute_delta_squares_avx2(int16_t *d, const int16_t *a,
+void svt_av1_wedge_compute_delta_squares_avx2(int16_t *d, const int16_t *a,
     const int16_t *b, int N) {
     const __m256i v_neg_w = _mm256_set1_epi32(0xffff0001);
 
