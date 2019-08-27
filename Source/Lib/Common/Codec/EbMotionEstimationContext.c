@@ -8,7 +8,7 @@
 
 #include "EbMotionEstimationContext.h"
 
-void MotionEstimetionPredUnitCtor(
+static void MotionEstimetionPredUnitCtor(
     MePredUnit   *pu)
 {
     pu->distortion = 0xFFFFFFFFull;

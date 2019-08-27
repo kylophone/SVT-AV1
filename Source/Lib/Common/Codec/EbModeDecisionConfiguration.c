@@ -102,7 +102,7 @@ mdcSetDepth : set depth to be tested
 #define REFINEMENT_Pm2      0x20
 #define REFINEMENT_Pm3      0x40
 
-EbErrorType MdcRefinement(
+static EbErrorType MdcRefinement(
     MdcpLocalCodingUnit                   *local_cu_array,
     uint32_t                                  cu_index,
     uint32_t                                  depth,
@@ -244,7 +244,7 @@ EbErrorType MdcRefinement(
     return return_error;
 }
 
-void RefinementPredictionLoop(
+static void RefinementPredictionLoop(
     SequenceControlSet                   *sequence_control_set_ptr,
     PictureControlSet                    *picture_control_set_ptr,
     uint32_t                              sb_index,
@@ -298,7 +298,7 @@ void RefinementPredictionLoop(
     } // End while 1 CU Loop
 }
 
-void ForwardCuToModeDecision(
+static void ForwardCuToModeDecision(
     SequenceControlSet                   *sequence_control_set_ptr,
     PictureControlSet                    *picture_control_set_ptr,
     uint32_t                                  sb_index,
@@ -424,7 +424,7 @@ void ForwardCuToModeDecision(
     } // End CU Loop
 }
 
-void MdcInterDepthDecision(
+static void MdcInterDepthDecision(
     ModeDecisionConfigurationContext     *context_ptr,
     uint32_t                                 origin_x,
     uint32_t                                 origin_y,
@@ -574,7 +574,7 @@ void MdcInterDepthDecision(
     context_ptr->group_of16x16_blocks_count = group_of16x16_blocks_count;
 }
 
-void PredictionPartitionLoop(
+static void PredictionPartitionLoop(
     SequenceControlSet                   *sequence_control_set_ptr,
     PictureControlSet                    *picture_control_set_ptr,
     uint32_t                                sb_index,
