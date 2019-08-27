@@ -27,29 +27,6 @@
 #include "EbPictureOperators.h"
 #define OIS_TH_COUNT 4
 
-static int32_t OisPointTh[3][MAX_TEMPORAL_LAYERS][OIS_TH_COUNT] = {
-    {// Light OIS
-     {-20, 50, 150, 200},
-     {-20, 50, 150, 200},
-     {-20, 50, 100, 150},
-     {-20, 50, 200, 300},
-     {-20, 50, 200, 300},
-     {-20, 50, 200, 300}},
-    {// Default OIS
-     {-150, 0, 150, 200},
-     {-150, 0, 150, 200},
-     {-125, 0, 100, 150},
-     {-50, 50, 200, 300},
-     {-50, 50, 200, 300},
-     {-50, 50, 200, 300}},
-    {// Heavy OIS
-     {-400, -300, -200, 0},
-     {-400, -300, -200, 0},
-     {-400, -300, -200, 0},
-     {-400, -300, -200, 0},
-     {-400, -300, -200, 0},
-     {-400, -300, -200, 0}}};
-
 void ext_all_sad_calculation_8x8_16x16_c(
     uint8_t *src, uint32_t src_stride, uint8_t *ref, uint32_t ref_stride,
     uint32_t mv, uint32_t *p_best_sad8x8, uint32_t *p_best_sad16x16,

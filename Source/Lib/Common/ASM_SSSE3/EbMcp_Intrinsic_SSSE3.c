@@ -18,42 +18,12 @@
 __attribute__((visibility("hidden")))
 #endif
 #endif
-static const int16_t lumaFilterCoeff[4][8] =
-{
-  { 0, 0,  0, 64,  0,  0, 0,  0},
-  {-1, 4,-10, 58, 17, -5, 1,  0},
-  {-1, 4,-11, 40, 40,-11, 4, -1},
-  { 0, 1, -5, 17, 58,-10, 4, -1}
-};
-
-#if defined(__linux__) || defined(__APPLE__)
-#ifndef __cplusplus
-__attribute__((visibility("hidden")))
-#endif
-#endif
 static const int16_t lumaFilterCoeff7[4][8] =
 {
   { 0, 0,  0, 64,  0,  0, 0,  0},
   {-1, 4,-10, 58, 17, -5, 1,  0},
   {-1, 4,-11, 40, 40,-11, 4, -1},
   { 1, -5, 17, 58,-10, 4, -1, 0}
-};
-
-#if defined(__linux__) || defined(__APPLE__)
-#ifndef __cplusplus
-__attribute__((visibility("hidden")))
-#endif
-#endif
-static const int16_t chromaFilterCoeff[8][4] =
-{
-  { 0, 64,  0,  0},
-  {-2, 58, 10, -2},
-  {-4, 54, 16, -2},
-  {-6, 46, 28, -4},
-  {-4, 36, 36, -4},
-  {-4, 28, 46, -6},
-  {-2, 16, 54, -4},
-  {-2, 10, 58, -2},
 };
 
 static void PrefetchBlock(uint8_t *src, uint32_t src_stride, uint32_t blkWidth, uint32_t blkHeight)

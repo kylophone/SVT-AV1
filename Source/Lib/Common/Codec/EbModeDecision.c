@@ -47,18 +47,7 @@ static int32_t have_newmv_in_inter_mode(PredictionMode mode) {
         mode == NEW_NEARESTMV || mode == NEAR_NEWMV || mode == NEW_NEARMV);
 }
 #endif
-static const uint32_t parentIndex[85] = { 0, 0, 0, 2, 2, 2, 2, 0, 7, 7, 7, 7, 0, 12, 12, 12, 12, 0, 17, 17, 17, 17, 0, 0,
-23, 23, 23, 23, 0, 28, 28, 28, 28, 0, 33, 33, 33, 33, 0, 38, 38, 38, 38, 0, 0,
-44, 44, 44, 44, 0, 49, 49, 49, 49, 0, 54, 54, 54, 54, 0, 59, 59, 59, 59, 0, 0,
-65, 65, 65, 65, 0, 70, 70, 70, 70, 0, 75, 75, 75, 75, 0, 80, 80, 80, 80 };
-/*
-  NORMAL ORDER
-  |-------------------------------------------------------------|
-  | ref_idx          0            1           2            3       |
-  | List0            LAST        LAST2        LAST3        GOLD    |
-  | List1            BWD            ALT2        ALT                 |
-  |-------------------------------------------------------------|
-*/
+
 #define INVALID_REF 0xF
 
 uint8_t get_list_idx(uint8_t ref_type) {
