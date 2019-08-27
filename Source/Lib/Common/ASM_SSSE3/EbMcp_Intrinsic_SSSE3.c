@@ -13,11 +13,6 @@
 
 #include "tmmintrin.h"
 
-#if defined(__linux__) || defined(__APPLE__)
-#ifndef __cplusplus
-__attribute__((visibility("hidden")))
-#endif
-#endif
 static const int16_t lumaFilterCoeff7[4][8] =
 {
   { 0, 0,  0, 64,  0,  0, 0,  0},
