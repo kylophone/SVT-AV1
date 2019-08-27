@@ -272,7 +272,7 @@ EbErrorType eb_destroy_semaphore(EbHandle semaphore_handle)
     free(semaphore_handle);
 #elif defined(__APPLE__)
     return_error = sem_close(semaphore_handle);
-
+    return_error |= sem_unlink(semaphore_handle.name);
 #endif // _WIN32
 
     return return_error;
