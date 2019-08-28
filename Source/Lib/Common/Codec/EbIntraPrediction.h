@@ -146,7 +146,7 @@ extern int32_t intra_has_bottom_left(BlockSize sb_size, BlockSize bsize, int32_t
     PartitionType partition, TxSize txsz, int32_t row_off,
     int32_t col_off, int32_t ss_x, int32_t ss_y);
 
-extern IntraPredFn pred[INTRA_MODES][TX_SIZES_ALL];
+extern IntraPredFn svt_av1_intra_pred_fn[INTRA_MODES][TX_SIZES_ALL];
 extern IntraPredFn dc_pred[2][2][TX_SIZES_ALL];
 
 extern IntraHighPredFn pred_high[INTRA_MODES][TX_SIZES_ALL];

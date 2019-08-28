@@ -1564,7 +1564,7 @@ int32_t intra_has_bottom_left(BlockSize sb_size, BlockSize bsize, int32_t mi_row
     }
 }
 
-IntraPredFn pred[INTRA_MODES][TX_SIZES_ALL];
+IntraPredFn svt_av1_intra_pred_fn[INTRA_MODES][TX_SIZES_ALL];
 IntraPredFn dc_pred[2][2][TX_SIZES_ALL];
 
 IntraHighPredFn pred_high[INTRA_MODES][TX_SIZES_ALL];
@@ -2552,154 +2552,154 @@ void init_intra_dc_predictors_c_internal(void)
 }
 
 /*static*/ void init_intra_predictors_internal(void) {
-    pred[V_PRED][TX_4X4] = eb_aom_v_predictor_4x4;
-    pred[V_PRED][TX_8X8] = eb_aom_v_predictor_8x8;
-    pred[V_PRED][TX_16X16] = eb_aom_v_predictor_16x16;
-    pred[V_PRED][TX_32X32] = eb_aom_v_predictor_32x32;
-    pred[V_PRED][TX_64X64] = eb_aom_v_predictor_64x64;
-    pred[V_PRED][TX_4X8] = eb_aom_v_predictor_4x8;
-    pred[V_PRED][TX_4X16] = eb_aom_v_predictor_4x16;
+    svt_av1_intra_pred_fn[V_PRED][TX_4X4] = eb_aom_v_predictor_4x4;
+    svt_av1_intra_pred_fn[V_PRED][TX_8X8] = eb_aom_v_predictor_8x8;
+    svt_av1_intra_pred_fn[V_PRED][TX_16X16] = eb_aom_v_predictor_16x16;
+    svt_av1_intra_pred_fn[V_PRED][TX_32X32] = eb_aom_v_predictor_32x32;
+    svt_av1_intra_pred_fn[V_PRED][TX_64X64] = eb_aom_v_predictor_64x64;
+    svt_av1_intra_pred_fn[V_PRED][TX_4X8] = eb_aom_v_predictor_4x8;
+    svt_av1_intra_pred_fn[V_PRED][TX_4X16] = eb_aom_v_predictor_4x16;
 
-    pred[V_PRED][TX_8X4] = eb_aom_v_predictor_8x4;
-    pred[V_PRED][TX_8X16] = eb_aom_v_predictor_8x16;
-    pred[V_PRED][TX_8X32] = eb_aom_v_predictor_8x32;
+    svt_av1_intra_pred_fn[V_PRED][TX_8X4] = eb_aom_v_predictor_8x4;
+    svt_av1_intra_pred_fn[V_PRED][TX_8X16] = eb_aom_v_predictor_8x16;
+    svt_av1_intra_pred_fn[V_PRED][TX_8X32] = eb_aom_v_predictor_8x32;
 
-    pred[V_PRED][TX_16X4] = eb_aom_v_predictor_16x4;
-    pred[V_PRED][TX_16X8] = eb_aom_v_predictor_16x8;
-    pred[V_PRED][TX_16X32] = eb_aom_v_predictor_16x32;
-    pred[V_PRED][TX_16X64] = eb_aom_v_predictor_16x64;
+    svt_av1_intra_pred_fn[V_PRED][TX_16X4] = eb_aom_v_predictor_16x4;
+    svt_av1_intra_pred_fn[V_PRED][TX_16X8] = eb_aom_v_predictor_16x8;
+    svt_av1_intra_pred_fn[V_PRED][TX_16X32] = eb_aom_v_predictor_16x32;
+    svt_av1_intra_pred_fn[V_PRED][TX_16X64] = eb_aom_v_predictor_16x64;
 
-    pred[V_PRED][TX_32X8] = eb_aom_v_predictor_32x8;
-    pred[V_PRED][TX_32X16] = eb_aom_v_predictor_32x16;
-    pred[V_PRED][TX_32X64] = eb_aom_v_predictor_32x64;
+    svt_av1_intra_pred_fn[V_PRED][TX_32X8] = eb_aom_v_predictor_32x8;
+    svt_av1_intra_pred_fn[V_PRED][TX_32X16] = eb_aom_v_predictor_32x16;
+    svt_av1_intra_pred_fn[V_PRED][TX_32X64] = eb_aom_v_predictor_32x64;
 
-    pred[V_PRED][TX_64X16] = eb_aom_v_predictor_64x16;
-    pred[V_PRED][TX_64X32] = eb_aom_v_predictor_64x32;
+    svt_av1_intra_pred_fn[V_PRED][TX_64X16] = eb_aom_v_predictor_64x16;
+    svt_av1_intra_pred_fn[V_PRED][TX_64X32] = eb_aom_v_predictor_64x32;
 
-    pred[H_PRED][TX_4X4] = eb_aom_h_predictor_4x4;
-    pred[H_PRED][TX_8X8] = eb_aom_h_predictor_8x8;
-    pred[H_PRED][TX_16X16] = eb_aom_h_predictor_16x16;
-    pred[H_PRED][TX_32X32] = eb_aom_h_predictor_32x32;
-    pred[H_PRED][TX_64X64] = eb_aom_h_predictor_64x64;
+    svt_av1_intra_pred_fn[H_PRED][TX_4X4] = eb_aom_h_predictor_4x4;
+    svt_av1_intra_pred_fn[H_PRED][TX_8X8] = eb_aom_h_predictor_8x8;
+    svt_av1_intra_pred_fn[H_PRED][TX_16X16] = eb_aom_h_predictor_16x16;
+    svt_av1_intra_pred_fn[H_PRED][TX_32X32] = eb_aom_h_predictor_32x32;
+    svt_av1_intra_pred_fn[H_PRED][TX_64X64] = eb_aom_h_predictor_64x64;
 
-    pred[H_PRED][TX_4X8] = eb_aom_h_predictor_4x8;
-    pred[H_PRED][TX_4X16] = eb_aom_h_predictor_4x16;
+    svt_av1_intra_pred_fn[H_PRED][TX_4X8] = eb_aom_h_predictor_4x8;
+    svt_av1_intra_pred_fn[H_PRED][TX_4X16] = eb_aom_h_predictor_4x16;
 
-    pred[H_PRED][TX_8X4] = eb_aom_h_predictor_8x4;
-    pred[H_PRED][TX_8X16] = eb_aom_h_predictor_8x16;
-    pred[H_PRED][TX_8X32] = eb_aom_h_predictor_8x32;
+    svt_av1_intra_pred_fn[H_PRED][TX_8X4] = eb_aom_h_predictor_8x4;
+    svt_av1_intra_pred_fn[H_PRED][TX_8X16] = eb_aom_h_predictor_8x16;
+    svt_av1_intra_pred_fn[H_PRED][TX_8X32] = eb_aom_h_predictor_8x32;
 
-    pred[H_PRED][TX_16X4] = eb_aom_h_predictor_16x4;
-    pred[H_PRED][TX_16X8] = eb_aom_h_predictor_16x8;
-    pred[H_PRED][TX_16X32] = eb_aom_h_predictor_16x32;
-    pred[H_PRED][TX_16X64] = eb_aom_h_predictor_16x64;
+    svt_av1_intra_pred_fn[H_PRED][TX_16X4] = eb_aom_h_predictor_16x4;
+    svt_av1_intra_pred_fn[H_PRED][TX_16X8] = eb_aom_h_predictor_16x8;
+    svt_av1_intra_pred_fn[H_PRED][TX_16X32] = eb_aom_h_predictor_16x32;
+    svt_av1_intra_pred_fn[H_PRED][TX_16X64] = eb_aom_h_predictor_16x64;
 
-    pred[H_PRED][TX_32X8] = eb_aom_h_predictor_32x8;
-    pred[H_PRED][TX_32X16] = eb_aom_h_predictor_32x16;
-    pred[H_PRED][TX_32X64] = eb_aom_h_predictor_32x64;
+    svt_av1_intra_pred_fn[H_PRED][TX_32X8] = eb_aom_h_predictor_32x8;
+    svt_av1_intra_pred_fn[H_PRED][TX_32X16] = eb_aom_h_predictor_32x16;
+    svt_av1_intra_pred_fn[H_PRED][TX_32X64] = eb_aom_h_predictor_32x64;
 
-    pred[H_PRED][TX_64X16] = eb_aom_h_predictor_64x16;
-    pred[H_PRED][TX_64X32] = eb_aom_h_predictor_64x32;
+    svt_av1_intra_pred_fn[H_PRED][TX_64X16] = eb_aom_h_predictor_64x16;
+    svt_av1_intra_pred_fn[H_PRED][TX_64X32] = eb_aom_h_predictor_64x32;
 
-    pred[SMOOTH_PRED][TX_4X4] = eb_aom_smooth_predictor_4x4;
-    pred[SMOOTH_PRED][TX_8X8] = eb_aom_smooth_predictor_8x8;
-    pred[SMOOTH_PRED][TX_16X16] = eb_aom_smooth_predictor_16x16;
-    pred[SMOOTH_PRED][TX_32X32] = eb_aom_smooth_predictor_32x32;
-    pred[SMOOTH_PRED][TX_64X64] = eb_aom_smooth_predictor_64x64;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_4X4] = eb_aom_smooth_predictor_4x4;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_8X8] = eb_aom_smooth_predictor_8x8;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_16X16] = eb_aom_smooth_predictor_16x16;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_32X32] = eb_aom_smooth_predictor_32x32;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_64X64] = eb_aom_smooth_predictor_64x64;
 
-    pred[SMOOTH_PRED][TX_4X8] = eb_aom_smooth_predictor_4x8;
-    pred[SMOOTH_PRED][TX_4X16] = eb_aom_smooth_predictor_4x16;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_4X8] = eb_aom_smooth_predictor_4x8;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_4X16] = eb_aom_smooth_predictor_4x16;
 
-    pred[SMOOTH_PRED][TX_8X4] = eb_aom_smooth_predictor_8x4;
-    pred[SMOOTH_PRED][TX_8X16] = eb_aom_smooth_predictor_8x16;
-    pred[SMOOTH_PRED][TX_8X32] = eb_aom_smooth_predictor_8x32;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_8X4] = eb_aom_smooth_predictor_8x4;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_8X16] = eb_aom_smooth_predictor_8x16;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_8X32] = eb_aom_smooth_predictor_8x32;
 
-    pred[SMOOTH_PRED][TX_16X4] = eb_aom_smooth_predictor_16x4;
-    pred[SMOOTH_PRED][TX_16X8] = eb_aom_smooth_predictor_16x8;
-    pred[SMOOTH_PRED][TX_16X32] = eb_aom_smooth_predictor_16x32;
-    pred[SMOOTH_PRED][TX_16X64] = eb_aom_smooth_predictor_16x64;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_16X4] = eb_aom_smooth_predictor_16x4;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_16X8] = eb_aom_smooth_predictor_16x8;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_16X32] = eb_aom_smooth_predictor_16x32;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_16X64] = eb_aom_smooth_predictor_16x64;
 
-    pred[SMOOTH_PRED][TX_32X8] = eb_aom_smooth_predictor_32x8;
-    pred[SMOOTH_PRED][TX_32X16] = eb_aom_smooth_predictor_32x16;
-    pred[SMOOTH_PRED][TX_32X64] = eb_aom_smooth_predictor_32x64;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_32X8] = eb_aom_smooth_predictor_32x8;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_32X16] = eb_aom_smooth_predictor_32x16;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_32X64] = eb_aom_smooth_predictor_32x64;
 
-    pred[SMOOTH_PRED][TX_64X16] = eb_aom_smooth_predictor_64x16;
-    pred[SMOOTH_PRED][TX_64X32] = eb_aom_smooth_predictor_64x32;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_64X16] = eb_aom_smooth_predictor_64x16;
+    svt_av1_intra_pred_fn[SMOOTH_PRED][TX_64X32] = eb_aom_smooth_predictor_64x32;
 
-    pred[SMOOTH_V_PRED][TX_4X4] = eb_aom_smooth_v_predictor_4x4;
-    pred[SMOOTH_V_PRED][TX_8X8] = eb_aom_smooth_v_predictor_8x8;
-    pred[SMOOTH_V_PRED][TX_16X16] = eb_aom_smooth_v_predictor_16x16;
-    pred[SMOOTH_V_PRED][TX_32X32] = eb_aom_smooth_v_predictor_32x32;
-    pred[SMOOTH_V_PRED][TX_64X64] = eb_aom_smooth_v_predictor_64x64;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_4X4] = eb_aom_smooth_v_predictor_4x4;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_8X8] = eb_aom_smooth_v_predictor_8x8;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_16X16] = eb_aom_smooth_v_predictor_16x16;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_32X32] = eb_aom_smooth_v_predictor_32x32;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_64X64] = eb_aom_smooth_v_predictor_64x64;
 
-    pred[SMOOTH_V_PRED][TX_4X8] = eb_aom_smooth_v_predictor_4x8;
-    pred[SMOOTH_V_PRED][TX_4X16] = eb_aom_smooth_v_predictor_4x16;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_4X8] = eb_aom_smooth_v_predictor_4x8;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_4X16] = eb_aom_smooth_v_predictor_4x16;
 
-    pred[SMOOTH_V_PRED][TX_8X4] = eb_aom_smooth_v_predictor_8x4;
-    pred[SMOOTH_V_PRED][TX_8X16] = eb_aom_smooth_v_predictor_8x16;
-    pred[SMOOTH_V_PRED][TX_8X32] = eb_aom_smooth_v_predictor_8x32;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_8X4] = eb_aom_smooth_v_predictor_8x4;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_8X16] = eb_aom_smooth_v_predictor_8x16;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_8X32] = eb_aom_smooth_v_predictor_8x32;
 
-    pred[SMOOTH_V_PRED][TX_16X4] = eb_aom_smooth_v_predictor_16x4;
-    pred[SMOOTH_V_PRED][TX_16X8] = eb_aom_smooth_v_predictor_16x8;
-    pred[SMOOTH_V_PRED][TX_16X32] = eb_aom_smooth_v_predictor_16x32;
-    pred[SMOOTH_V_PRED][TX_16X64] = eb_aom_smooth_v_predictor_16x64;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_16X4] = eb_aom_smooth_v_predictor_16x4;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_16X8] = eb_aom_smooth_v_predictor_16x8;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_16X32] = eb_aom_smooth_v_predictor_16x32;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_16X64] = eb_aom_smooth_v_predictor_16x64;
 
-    pred[SMOOTH_V_PRED][TX_32X8] = eb_aom_smooth_v_predictor_32x8;
-    pred[SMOOTH_V_PRED][TX_32X16] = eb_aom_smooth_v_predictor_32x16;
-    pred[SMOOTH_V_PRED][TX_32X64] = eb_aom_smooth_v_predictor_32x64;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_32X8] = eb_aom_smooth_v_predictor_32x8;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_32X16] = eb_aom_smooth_v_predictor_32x16;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_32X64] = eb_aom_smooth_v_predictor_32x64;
 
-    pred[SMOOTH_V_PRED][TX_64X16] = eb_aom_smooth_v_predictor_64x16;
-    pred[SMOOTH_V_PRED][TX_64X32] = eb_aom_smooth_v_predictor_64x32;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_64X16] = eb_aom_smooth_v_predictor_64x16;
+    svt_av1_intra_pred_fn[SMOOTH_V_PRED][TX_64X32] = eb_aom_smooth_v_predictor_64x32;
 
-    pred[SMOOTH_H_PRED][TX_4X4] = eb_aom_smooth_h_predictor_4x4;
-    pred[SMOOTH_H_PRED][TX_8X8] = eb_aom_smooth_h_predictor_8x8;
-    pred[SMOOTH_H_PRED][TX_16X16] = eb_aom_smooth_h_predictor_16x16;
-    pred[SMOOTH_H_PRED][TX_32X32] = eb_aom_smooth_h_predictor_32x32;
-    pred[SMOOTH_H_PRED][TX_64X64] = eb_aom_smooth_h_predictor_64x64;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_4X4] = eb_aom_smooth_h_predictor_4x4;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_8X8] = eb_aom_smooth_h_predictor_8x8;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_16X16] = eb_aom_smooth_h_predictor_16x16;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_32X32] = eb_aom_smooth_h_predictor_32x32;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_64X64] = eb_aom_smooth_h_predictor_64x64;
 
-    pred[SMOOTH_H_PRED][TX_4X8] = eb_aom_smooth_h_predictor_4x8;
-    pred[SMOOTH_H_PRED][TX_4X16] = eb_aom_smooth_h_predictor_4x16;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_4X8] = eb_aom_smooth_h_predictor_4x8;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_4X16] = eb_aom_smooth_h_predictor_4x16;
 
-    pred[SMOOTH_H_PRED][TX_8X4] = eb_aom_smooth_h_predictor_8x4;
-    pred[SMOOTH_H_PRED][TX_8X16] = eb_aom_smooth_h_predictor_8x16;
-    pred[SMOOTH_H_PRED][TX_8X32] = eb_aom_smooth_h_predictor_8x32;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_8X4] = eb_aom_smooth_h_predictor_8x4;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_8X16] = eb_aom_smooth_h_predictor_8x16;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_8X32] = eb_aom_smooth_h_predictor_8x32;
 
-    pred[SMOOTH_H_PRED][TX_16X4] = eb_aom_smooth_h_predictor_16x4;
-    pred[SMOOTH_H_PRED][TX_16X8] = eb_aom_smooth_h_predictor_16x8;
-    pred[SMOOTH_H_PRED][TX_16X32] = eb_aom_smooth_h_predictor_16x32;
-    pred[SMOOTH_H_PRED][TX_16X64] = eb_aom_smooth_h_predictor_16x64;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_16X4] = eb_aom_smooth_h_predictor_16x4;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_16X8] = eb_aom_smooth_h_predictor_16x8;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_16X32] = eb_aom_smooth_h_predictor_16x32;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_16X64] = eb_aom_smooth_h_predictor_16x64;
 
-    pred[SMOOTH_H_PRED][TX_32X8] = eb_aom_smooth_h_predictor_32x8;
-    pred[SMOOTH_H_PRED][TX_32X16] = eb_aom_smooth_h_predictor_32x16;
-    pred[SMOOTH_H_PRED][TX_32X64] = eb_aom_smooth_h_predictor_32x64;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_32X8] = eb_aom_smooth_h_predictor_32x8;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_32X16] = eb_aom_smooth_h_predictor_32x16;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_32X64] = eb_aom_smooth_h_predictor_32x64;
 
-    pred[SMOOTH_H_PRED][TX_64X16] = eb_aom_smooth_h_predictor_64x16;
-    pred[SMOOTH_H_PRED][TX_64X32] = eb_aom_smooth_h_predictor_64x32;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_64X16] = eb_aom_smooth_h_predictor_64x16;
+    svt_av1_intra_pred_fn[SMOOTH_H_PRED][TX_64X32] = eb_aom_smooth_h_predictor_64x32;
 
-    pred[PAETH_PRED][TX_4X4] = eb_aom_paeth_predictor_4x4;
-    pred[PAETH_PRED][TX_8X8] = eb_aom_paeth_predictor_8x8;
-    pred[PAETH_PRED][TX_16X16] = eb_aom_paeth_predictor_16x16;
-    pred[PAETH_PRED][TX_32X32] = eb_aom_paeth_predictor_32x32;
-    pred[PAETH_PRED][TX_64X64] = eb_aom_paeth_predictor_64x64;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_4X4] = eb_aom_paeth_predictor_4x4;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_8X8] = eb_aom_paeth_predictor_8x8;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_16X16] = eb_aom_paeth_predictor_16x16;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_32X32] = eb_aom_paeth_predictor_32x32;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_64X64] = eb_aom_paeth_predictor_64x64;
 
-    pred[PAETH_PRED][TX_4X8] = eb_aom_paeth_predictor_4x8;
-    pred[PAETH_PRED][TX_4X16] = eb_aom_paeth_predictor_4x16;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_4X8] = eb_aom_paeth_predictor_4x8;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_4X16] = eb_aom_paeth_predictor_4x16;
 
-    pred[PAETH_PRED][TX_8X4] = eb_aom_paeth_predictor_8x4;
-    pred[PAETH_PRED][TX_8X16] = eb_aom_paeth_predictor_8x16;
-    pred[PAETH_PRED][TX_8X32] = eb_aom_paeth_predictor_8x32;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_8X4] = eb_aom_paeth_predictor_8x4;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_8X16] = eb_aom_paeth_predictor_8x16;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_8X32] = eb_aom_paeth_predictor_8x32;
 
-    pred[PAETH_PRED][TX_16X4] = eb_aom_paeth_predictor_16x4;
-    pred[PAETH_PRED][TX_16X8] = eb_aom_paeth_predictor_16x8;
-    pred[PAETH_PRED][TX_16X32] = eb_aom_paeth_predictor_16x32;
-    pred[PAETH_PRED][TX_16X64] = eb_aom_paeth_predictor_16x64;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_16X4] = eb_aom_paeth_predictor_16x4;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_16X8] = eb_aom_paeth_predictor_16x8;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_16X32] = eb_aom_paeth_predictor_16x32;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_16X64] = eb_aom_paeth_predictor_16x64;
 
-    pred[PAETH_PRED][TX_32X8] = eb_aom_paeth_predictor_32x8;
-    pred[PAETH_PRED][TX_32X16] = eb_aom_paeth_predictor_32x16;
-    pred[PAETH_PRED][TX_32X64] = eb_aom_paeth_predictor_32x64;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_32X8] = eb_aom_paeth_predictor_32x8;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_32X16] = eb_aom_paeth_predictor_32x16;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_32X64] = eb_aom_paeth_predictor_32x64;
 
-    pred[PAETH_PRED][TX_64X16] = eb_aom_paeth_predictor_64x16;
-    pred[PAETH_PRED][TX_64X32] = eb_aom_paeth_predictor_64x32;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_64X16] = eb_aom_paeth_predictor_64x16;
+    svt_av1_intra_pred_fn[PAETH_PRED][TX_64X32] = eb_aom_paeth_predictor_64x32;
     dc_pred[0][0][TX_4X4] = eb_aom_dc_128_predictor_4x4;
     dc_pred[0][0][TX_8X8] = eb_aom_dc_128_predictor_8x8;
     dc_pred[0][0][TX_16X16] = eb_aom_dc_128_predictor_16x16;
@@ -3069,9 +3069,9 @@ void dr_predictor(uint8_t *dst, ptrdiff_t stride, TxSize tx_size,
             dy);
     }
     else if (angle == 90)
-        pred[V_PRED][tx_size](dst, stride, above, left);
+        svt_av1_intra_pred_fn[V_PRED][tx_size](dst, stride, above, left);
     else if (angle == 180)
-        pred[H_PRED][tx_size](dst, stride, above, left);
+        svt_av1_intra_pred_fn[H_PRED][tx_size](dst, stride, above, left);
 }
 
 void filter_intra_edge_corner(uint8_t *p_above, uint8_t *p_left) {
@@ -3689,7 +3689,7 @@ static void build_intra_predictors(
             left_col);
     }
     else
-        pred[mode][tx_size](dst, dst_stride, above_row, left_col);
+        svt_av1_intra_pred_fn[mode][tx_size](dst, dst_stride, above_row, left_col);
 }
 static void build_intra_predictors_high(
     const MacroBlockD *xd,
@@ -4651,7 +4651,7 @@ EbErrorType intra_prediction_open_loop(
         if (mode == DC_PRED) {
             dc_pred[src_origin_x > 0][src_origin_y > 0][tx_size](dst, dst_stride, above_row, left_col);
         } else
-            pred[mode][tx_size](dst, dst_stride, above_row, left_col);
+            svt_av1_intra_pred_fn[mode][tx_size](dst, dst_stride, above_row, left_col);
     }
     return return_error;
 }

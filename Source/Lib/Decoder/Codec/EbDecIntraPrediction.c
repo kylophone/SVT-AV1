@@ -516,7 +516,7 @@ static void decode_build_intra_predictors(
             left_col);
     }
     else
-        pred[mode][tx_size](dst, dst_stride, above_row, left_col);
+        svt_av1_intra_pred_fn[mode][tx_size](dst, dst_stride, above_row, left_col);
 }
 
 /* TODO : Harmonize with Encoder! */
