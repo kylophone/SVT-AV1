@@ -6,15 +6,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 
 #include "EbAppString.h"
 #include "EbAppConfig.h"
 #include "EbAppInputy4m.h"
 
 #ifdef _WIN32
+#include <io.h>
 #else
 #include <unistd.h>
+#include <sys/stat.h>
 #endif
 
 /**********************************
@@ -135,10 +136,15 @@ static void SetCfgInputFile(const char *filename, EbConfig *cfg)
     else
         FOPEN(cfg->input_file, filename, "rb");
 
+    #ifdef _WIN32
+    if (!strncmp(filename, "\\\\.\\pipe\\", 10) || !strncmp(filename, "stdin", 6))
+        cfg->input_file_is_fifo = EB_TRUE;
+    #else
     int fd = fileno(cfg->input_file);
     struct stat statbuf;
     fstat(fd, &statbuf);
     cfg->input_file_is_fifo = S_ISFIFO(statbuf.st_mode);
+    #endif
     cfg->y4m_input = check_if_y4m(cfg);
 };
 
