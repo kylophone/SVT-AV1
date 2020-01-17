@@ -250,8 +250,8 @@ static EbErrorType allocate_frame_buffer(EbConfig *config, uint8_t *p_buffer) {
     // Determine
     EbSvtIOFormat *input_ptr = (EbSvtIOFormat *)p_buffer;
     input_ptr->y_stride      = config->input_padded_width;
-    input_ptr->cr_stride     = config->input_padded_width >> subsampling_x;
-    input_ptr->cb_stride     = config->input_padded_width >> subsampling_x;
+    input_ptr->cr_stride     = config->input_padded_width >> subsampling_x; //FIXME
+    input_ptr->cb_stride     = config->input_padded_width >> subsampling_x; //FIXME
 
     if (luma_8bit_size) {
         EB_APP_MALLOC(
