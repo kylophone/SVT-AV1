@@ -25,7 +25,6 @@ addons:
 stages:
   - name: test
     if: type != pull_request
-  - name: unittest
 
 # Default scripts
 before_install:
@@ -231,24 +230,3 @@ matrix:
       script:
         - *base_script
         - travis_wait 60 valgrind -- SvtAv1EncApp -enc-mode 4 -i akiyo_cif.y4m -n 20 -b test1.ivf
-
-    # Unittests on Linux and macOS
-    - name: Unit Tests Linux+gcc
-      stage: unittest
-      env: build_type=release CMAKE_EFLAGS="-DBUILD_TESTING=ON" SVT_AV1_TEST_VECTOR_PATH=$TRAVIS_BUILD_DIR/test/vectors/
-      script:
-        - *base_script
-        - &unittests |
-          cd $TRAVIS_BUILD_DIR/Build/linux/${build_type:-Release}
-          make TestVectors
-          cd $TRAVIS_BUILD_DIR
-          SvtAv1UnitTests
-          SvtAv1ApiTests
-          SvtAv1E2ETests
-    - name: Unit Tests osx+clang
-      os: osx
-      compiler: clang
-      env: build_type=release CMAKE_EFLAGS="-DBUILD_TESTING=ON" SVT_AV1_TEST_VECTOR_PATH=$TRAVIS_BUILD_DIR/test/vectors/
-      script:
-        - *base_script
-        - *unittests
