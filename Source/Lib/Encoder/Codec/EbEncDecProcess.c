@@ -1209,24 +1209,24 @@ void pad_ref_and_set_flags(PictureControlSet *pcs_ptr, SequenceControlSet *scs_p
         // Y samples
         generate_padding16_bit(ref_pic_16bit_ptr->buffer_y,
                                ref_pic_16bit_ptr->stride_y << 1,
-                               ref_pic_16bit_ptr->width << 1,
-                               ref_pic_16bit_ptr->height,
+                               (ref_pic_16bit_ptr->width - scs_ptr->max_input_pad_right) << 1,
+                               ref_pic_16bit_ptr->height - scs_ptr->max_input_pad_bottom,
                                ref_pic_16bit_ptr->origin_x << 1,
                                ref_pic_16bit_ptr->origin_y);
 
         // Cb samples
         generate_padding16_bit(ref_pic_16bit_ptr->buffer_cb,
                                ref_pic_16bit_ptr->stride_cb << 1,
-                               ref_pic_16bit_ptr->width,
-                               ref_pic_16bit_ptr->height >> 1,
+                               (ref_pic_16bit_ptr->width - scs_ptr->max_input_pad_right),
+                               (ref_pic_16bit_ptr->height - scs_ptr->max_input_pad_bottom) >> 1,
                                ref_pic_16bit_ptr->origin_x,
                                ref_pic_16bit_ptr->origin_y >> 1);
 
         // Cr samples
         generate_padding16_bit(ref_pic_16bit_ptr->buffer_cr,
                                ref_pic_16bit_ptr->stride_cr << 1,
-                               ref_pic_16bit_ptr->width,
-                               ref_pic_16bit_ptr->height >> 1,
+                               (ref_pic_16bit_ptr->width - scs_ptr->max_input_pad_right),
+                               (ref_pic_16bit_ptr->height - scs_ptr->max_input_pad_bottom) >> 1,
                                ref_pic_16bit_ptr->origin_x,
                                ref_pic_16bit_ptr->origin_y >> 1);
 
