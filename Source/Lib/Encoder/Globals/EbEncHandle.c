@@ -942,8 +942,8 @@ EB_API EbErrorType eb_init_encoder(EbComponentType *svt_enc_component)
     setup_rtcd_internal(enc_handle_ptr->scs_instance_array[0]->scs_ptr->static_config.use_cpu_flags);
 
 #if NON8_FIX_REST
-    if(enc_handle_ptr->scs_instance_array[0]->scs_ptr->max_input_pad_right>0 || 
-       enc_handle_ptr->scs_instance_array[0]->scs_ptr->max_input_pad_bottom>0)    
+    if(enc_handle_ptr->scs_instance_array[0]->scs_ptr->max_input_pad_right>0 ||
+       enc_handle_ptr->scs_instance_array[0]->scs_ptr->max_input_pad_bottom>0)
         setup_rtcd_non8(enc_handle_ptr->scs_instance_array[0]->scs_ptr->static_config.use_cpu_flags);
 #endif
 
